@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>World's Clock Pro</title>
+  
+</head>
+<body>
+  <div class="app">
+    <div class="title">World's Clock Pro</div>
+
+    <div class="top-controls">
+      <select id="timezoneSelect">
+        <option value="Asia/Karachi">Karachi</option>
+        <option value="UTC">UTC</option>
+        <option value="America/New_York">New York</option>
+        <option value="Europe/London">London</option>
+        <option value="Asia/Dubai">Dubai</option>
+        <option value="Asia/Tokyo">Tokyo</option>
+        <option value="Australia/Sydney">Sydney</option>
+      </select>
+
+      <button id="formatToggle">Switch to 12h</button>
+      <button id="themeToggle">Toggle Theme</button>
+      <button class="secondary" id="fullscreenBtn">Fullscreen</button>
+    </div>
+
+    <div class="main-grid">
+      <div class="card">
+        <div class="clock-area">
+          <div class="clock">
+            <div class="brand">WORLD'S CLOCK</div>
+
+            <div class="number" style="--rot: 30deg;"><span>1</span></div>
+            <div class="number" style="--rot: 60deg;"><span>2</span></div>
+            <div class="number" style="--rot: 90deg;"><span>3</span></div>
+            <div class="number" style="--rot: 120deg;"><span>4</span></div>
+            <div class="number" style="--rot: 150deg;"><span>5</span></div>
+            <div class="number" style="--rot: 180deg;"><span>6</span></div>
+            <div class="number" style="--rot: 210deg;"><span>7</span></div>
+            <div class="number" style="--rot: 240deg;"><span>8</span></div>
+            <div class="number" style="--rot: 270deg;"><span>9</span></div>
+            <div class="number" style="--rot: 300deg;"><span>10</span></div>
+            <div class="number" style="--rot: 330deg;"><span>11</span></div>
+            <div class="number" style="--rot: 360deg;"><span>12</span></div>
+
+            <div class="hour"><div class="hr" id="hr"></div></div>
+            <div class="min"><div class="mn" id="mn"></div></div>
+            <div class="sec"><div class="sc" id="sc"></div></div>
+          </div>
+
+          <div class="digital">
+            <div class="digital-time" id="digitalTime">00:00:00</div>
+            <div class="date-text" id="dateText">Loading...</div>
+            <div class="zone-text" id="zoneText">Time Zone: Asia/Karachi</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">World Clocks</div>
+        <div class="world-clocks" id="worldClocks"></div>
+
+        <div class="tool">
+          <div class="section-title">Alarm</div>
+          <div class="tool-row">
+            <input type="time" id="alarmTime">
+            <button id="setAlarmBtn">Set Alarm</button>
+            <button class="secondary" id="clearAlarmBtn">Clear</button>
+          </div>
+          <div class="alarm-status" id="alarmStatus">No alarm set</div>
+        </div>
+
+        <div class="tool">
+          <div class="section-title">Stopwatch</div>
+          <div class="tool-display" id="stopwatchDisplay">00:00:00</div>
+          <div class="tool-row">
+            <button id="startStopwatch">Start</button>
+            <button class="secondary" id="pauseStopwatch">Pause</button>
+            <button class="secondary" id="resetStopwatch">Reset</button>
+          </div>
+        </div>
+
+        <div class="tool">
+          <div class="section-title">Countdown Timer</div>
+          <div class="tool-row">
+            <input type="number" id="timerMinutes" placeholder="Minutes" min="1">
+            <button id="startTimer">Start Timer</button>
+            <button class="secondary" id="resetTimer">Reset</button>
+          </div>
+          <div class="tool-display" id="timerDisplay">00:00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+  
+</body>
+</html>

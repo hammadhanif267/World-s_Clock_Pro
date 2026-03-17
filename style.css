@@ -1,0 +1,329 @@
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #091921;
+      --panel: #102733;
+      --panel-2: #0c1f29;
+      --text: #ffffff;
+      --muted: #a8bac4;
+      --accent: #ff105e;
+      --accent-2: #00e5ff;
+      --border: rgba(255,255,255,0.08);
+      --shadow: rgba(0,0,0,0.25);
+    }
+
+    body.light {
+      --bg: #eef4f7;
+      --panel: #ffffff;
+      --panel-2: #f4f8fa;
+      --text: #12202a;
+      --muted: #5c7380;
+      --accent: #e91e63;
+      --accent-2: #008fa1;
+      --border: rgba(0,0,0,0.08);
+      --shadow: rgba(0,0,0,0.12);
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      transition: 0.3s ease;
+    }
+
+    .app {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .top-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    select, button, input {
+      border: none;
+      outline: none;
+      border-radius: 12px;
+      padding: 11px 14px;
+      font-size: 14px;
+    }
+
+    select, input {
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    button {
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button.secondary {
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: 0 14px 24px var(--shadow);
+    }
+
+    .clock-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .clock {
+      position: relative;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at center, rgba(255,255,255,0.04) 0 58%, transparent 59%),
+        url(clock.png);
+      background-size: cover;
+      background-position: center;
+      box-shadow:
+        0 -15px 15px rgba(255, 255, 255, 0.05),
+        inset 0 -15px 15px rgba(255, 255, 255, 0.05),
+        0 15px 15px rgba(0, 0, 0, 0.3),
+        inset 0 15px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .clock::before {
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: var(--text);
+      border-radius: 50%;
+      z-index: 99;
+    }
+
+    .brand {
+      position: absolute;
+      top: 82px;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .number {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transform: rotate(var(--rot));
+      color: var(--text);
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 12px;
+    }
+
+    .number span {
+      display: inline-block;
+      transform: rotate(calc(var(--rot) * -1));
+    }
+
+    .hour, .min, .sec {
+      position: absolute;
+    }
+
+    .hour, .hr {
+      width: 160px;
+      height: 160px;
+    }
+
+    .min, .mn {
+      width: 210px;
+      height: 210px;
+    }
+
+    .sec, .sc {
+      width: 230px;
+      height: 230px;
+    }
+
+    .hr, .mn, .sc {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .hr::before {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 80px;
+      background: var(--accent);
+      border-radius: 6px 6px 0 0;
+      z-index: 10;
+    }
+
+    .mn::before {
+      content: "";
+      position: absolute;
+      width: 4px;
+      height: 100px;
+      background: var(--text);
+      border-radius: 6px 6px 0 0;
+      z-index: 11;
+    }
+
+    .sc::before {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 130px;
+      background: var(--accent-2);
+      border-radius: 6px 6px 0 0;
+      z-index: 12;
+    }
+
+    .digital {
+      text-align: center;
+    }
+
+    .digital-time {
+      font-size: 2.4rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .date-text, .zone-text {
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 14px;
+    }
+
+    .world-clocks {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .mini-clock {
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .mini-clock h4 {
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .mini-clock .time {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .tool {
+      background: var(--panel-2);
+      border-radius: 16px;
+      padding: 14px;
+      margin-top: 14px;
+      border: 1px solid var(--border);
+    }
+
+    .tool-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .tool-display {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .alarm-status {
+      margin-top: 8px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .clock {
+        width: 280px;
+        height: 280px;
+      }
+
+      .hour, .hr {
+        width: 130px;
+        height: 130px;
+      }
+
+      .min, .mn {
+        width: 165px;
+        height: 165px;
+      }
+
+      .sec, .sc {
+        width: 190px;
+        height: 190px;
+      }
+
+      .hr::before { height: 65px; }
+      .mn::before { height: 78px; }
+      .sc::before { height: 105px; }
+
+      .world-clocks {
+        grid-template-columns: 1fr;
+      }
+
+      .digital-time {
+        font-size: 1.8rem;
+      }
+    }
